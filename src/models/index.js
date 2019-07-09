@@ -1,6 +1,13 @@
 import mongoose from 'mongoose';
 
-import Item from './Item';
+import BedConfiguration from './BedConfiguration';
+import Feature from './Feature';
+import Image from './Image';
+import Rate from './Rate';
+import Room from './Room';
+import RoomAvailability from './RoomAvailability';
+import RoomExtra from './RoomExtra';
+import Type from './Type';
 
 const connectDb = () => {
   const uri = process.env.MONGO_URI;
@@ -18,5 +25,12 @@ const connectDb = () => {
 
 export {
   connectDb,
-  Item
+  BedConfiguration,
+  Feature,
+  Image,
+  Rate,
+  Room,
+  RoomAvailability,
+  RoomExtra,
+  Type
 };
