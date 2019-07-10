@@ -8,6 +8,7 @@ import Room from './Room';
 import RoomAvailability from './RoomAvailability';
 import RoomExtra from './RoomExtra';
 import Type from './Type';
+import PackageRate from './PackageRate';
 
 const connectDb = () => {
   const uri = process.env.MONGO_URI;
@@ -32,5 +33,6 @@ export {
   Room,
   RoomAvailability,
   RoomExtra,
-  Type
+  Type,
+  PackageRate
 };

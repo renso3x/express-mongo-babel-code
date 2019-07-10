@@ -1,6 +1,5 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 
-import typeSchema from './Type';
 import featureSchema from './Feature';
 import imageSchema from './Image';
 import bedConfigSchema from './BedConfiguration';
@@ -12,7 +11,11 @@ export const roomSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 255
   },
-  type: typeSchema,
+  type: {
+    type: new mongoose.Schema({
+      name: String
+    })
+  },
   maxRooms: {
     type: Number,
     default: 1,
@@ -25,10 +28,33 @@ export const roomSchema = new mongoose.Schema({
   roomSize: {
     type: Number,
   },
-  features: [featureSchema],
-  images: imageSchema,
-  bedConfig: [bedConfigSchema],
+  features: [{
+    type: new mongoose.Schema({
+      name: String
+    })
+  }],
+  images: {
+    type: new mongoose.Schema({
+      fileName: {
+        type: String,
+      },
+      url: {
+        type: String
+      }
+    })
+  },
+  bedConfig: [{
+    type: new mongoose.Schema({
+      name: {
+        type: String,
+        required: true
+      },
+      quantity: {
+        type: Number,
+        default: 0,
+      }
+    })
+  }],
 });
 
-export default Room = mongoose.model('Room', roomSchema);
-
+export default mongoose.model('Room', roomSchema);

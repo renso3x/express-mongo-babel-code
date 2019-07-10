@@ -6,6 +6,4 @@ export const typeSchema = new mongoose.Schema({
   }
 });
 
-const Type = mongoose.model('Type', typeSchema);
-
-export default Type;
+export default mongoose.model('Type', typeSchema);

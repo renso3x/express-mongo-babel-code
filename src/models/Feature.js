@@ -7,4 +7,4 @@ export const featureSchema = new mongoose.Schema({
   }
 });
 
-export default Feature = mongoose.model('Feature', featureSchema);
+export default mongoose.model('Feature', featureSchema);

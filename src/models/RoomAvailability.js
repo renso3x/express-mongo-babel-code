@@ -1,15 +1,20 @@
 import mongoose from 'mongoose';
 
-import roomSchema from './Room';
-
 export const roomAvailabilitySchema = new mongoose.Schema({
-  room: roomSchema,
+  room: {
+    type: new mongoose.Schema({
+      name: String
+    })
+  },
   date: {
     type: Date,
   },
   quantity: {
     type: Number
+  },
+  price: {
+    type: Number
   }
 });
 
-export default RoomAvailability = mongoose.model('RoomAvailability', roomAvailabilitySchema);
+export default mongoose.model('RoomAvailability', roomAvailabilitySchema);

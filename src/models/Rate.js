@@ -1,9 +1,13 @@
 import mongoose from 'mongoose';
 
-import roomSchema from './Room';
-
 export const rateSchema = new mongoose.Schema({
-  room: roomSchema,
+  room: {
+    type: new mongoose.Schema({
+      name: {
+        type: String,
+      },
+    })
+  },
   minGuest: {
     type: Number,
     default: 2,
@@ -31,4 +35,4 @@ export const rateSchema = new mongoose.Schema({
   }
 });
 
-export default Rate = mongoose.model('Rate', rateSchema);
+export default mongoose.model('Rate', rateSchema);

@@ -1,13 +1,13 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
 
-export const roomExtra = new mongoose.Schema({
+export const roomExtraSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
     minlenght: 5,
     maxlength: 100
   },
-  rate: {
+  price: {
     type: Number
   },
   description: {
@@ -17,4 +17,5 @@ export const roomExtra = new mongoose.Schema({
   },
 });
 
-export default RoomExtra = mongoose.model('RoomExtra', roomExta);
+
+export default mongoose.model('RoomExtra', roomExtraSchema);

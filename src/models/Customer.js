@@ -23,4 +23,4 @@ export const customerSchema = new mongoose.Schema({
   }
 });
 
-export default Customer = mongoose.model('Customer', customerSchema);
+export default mongoose.model('Customer', customerSchema);

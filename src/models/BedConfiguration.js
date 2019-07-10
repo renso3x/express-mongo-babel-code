@@ -11,4 +11,4 @@ export const bedConfigSchema = new mongoose.Schema({
   }
 });
 
-export default Bed = mongoose.model('BedConfig', bedConfigSchema);
+export default mongoose.model('BedConfig', bedConfigSchema);
