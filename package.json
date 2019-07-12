@@ -7,7 +7,7 @@
     "build": "babel src --out-dir dist --copy-files",
     "start": "babel-node src/index.js",
     "start:dist": "node dist/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --watchAll --verbose --coverage"
   },
   "keywords": [],
   "author": "",
@@ -15,6 +15,9 @@
   "dependencies": {
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
+    "express-graphql": "^0.8.0",
+    "graphql-playground-middleware-express": "^1.7.12",
+    "joi": "^14.3.1",
     "moment": "^2.24.0",
     "mongoose": "^5.5.15",
     "request": "^2.88.0",
@@ -26,6 +29,10 @@
     "@babel/node": "^7.4.5",
     "@babel/plugin-transform-modules-commonjs": "^7.5.0",
     "@babel/preset-env": "^7.4.5",
-    "babel-plugin-add-module-exports": "^1.0.2"
+    "babel-plugin-add-module-exports": "^1.0.2",
+    "graphiql": "^0.13.2",
+    "graphql": "^14.4.2",
+    "jest": "^24.8.0",
+    "supertest": "^4.0.2"
   }
 }

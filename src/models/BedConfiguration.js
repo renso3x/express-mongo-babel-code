@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const bedConfigSchema = new mongoose.Schema({
   name: {
@@ -7,8 +8,17 @@ export const bedConfigSchema = new mongoose.Schema({
   },
   quantity: {
     type: Number,
-    default: 0,
+    default: 1,
   }
 });
+
+export function validateBedConfig(user) {
+  const schema = {
+    name: Joi.string().min(3).max(255).required(),
+    quantity: Joi.number().min(1).positive()
+  };
+
+  return Joi.validate(user, schema);
+}
 
 export default mongoose.model('BedConfig', bedConfigSchema);

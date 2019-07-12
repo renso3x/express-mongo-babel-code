@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1562900934440" clover="3.2.0">
+  <project timestamp="1562900934440" name="All files">
+    <metrics statements="19" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="22" coveredelements="14" complexity="0" loc="19" ncloc="19" packages="2" files="11" classes="11"/>
+    <package name="controllers">
+      <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <file name="BedController.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/controllers/BedController.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="4" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="models">
+      <metrics statements="18" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <file name="BedConfiguration.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/BedConfiguration.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="16" count="2" type="stmt"/>
+        <line num="21" count="2" type="stmt"/>
+      </file>
+      <file name="Feature.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Feature.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Image.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Image.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="PackageRate.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/PackageRate.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Rate.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Rate.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Room.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Room.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="7" count="1" type="stmt"/>
+      </file>
+      <file name="RoomAvailability.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/RoomAvailability.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="RoomExtra.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/RoomExtra.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="Type.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Type.js">
+        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
+        <line num="3" count="1" type="stmt"/>
+      </file>
+      <file name="index.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/index.js">
+        <metrics statements="7" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="0" type="stmt"/>
+        <line num="15" count="0" type="stmt"/>
+        <line num="16" count="0" type="stmt"/>
+        <line num="18" count="0" type="stmt"/>
+        <line num="19" count="0" type="stmt"/>
+        <line num="24" count="0" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>
