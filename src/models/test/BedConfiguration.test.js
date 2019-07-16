@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import BedConfiguration, { validateBedConfig } from '../BedConfiguration';
 
-describe('DB: BedConfiguration', () => {
+describe('Model: BedConfiguration', () => {
   it('should return error object if values are incorrect', () => {
     const bedConfig = {
       name: '',

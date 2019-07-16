@@ -1,12 +1,22 @@
-import mongoose, { mongo } from 'mongoose';
+import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const imageSchema = new mongoose.Schema({
-  fileName: {
+  file: {
     type: String,
   },
-  url: {
-    type: String
+  payload: {
+    type: String,
   }
 });
+
+export function validateImage(image) {
+  const schema = {
+    file: Joi.string().regex(/(image)([/])(?:png|jpg|jpeg|tiff)/),
+    payload: Joi.string()
+  };
+
+  return Joi.validate(image, schema);
+}
 
 export default mongoose.model('Image', imageSchema);

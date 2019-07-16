@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1562900934440" clover="3.2.0">
-  <project timestamp="1562900934440" name="All files">
-    <metrics statements="19" coveredstatements="13" conditionals="0" coveredconditionals="0" methods="3" coveredmethods="1" elements="22" coveredelements="14" complexity="0" loc="19" ncloc="19" packages="2" files="11" classes="11"/>
+<coverage generated="1563245723029" clover="3.2.0">
+  <project timestamp="1563245723029" name="All files">
+    <metrics statements="26" coveredstatements="20" conditionals="0" coveredconditionals="0" methods="6" coveredmethods="4" elements="32" coveredelements="24" complexity="0" loc="26" ncloc="26" packages="2" files="12" classes="12"/>
     <package name="controllers">
       <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
       <file name="BedController.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/controllers/BedController.js">
@@ -10,20 +10,30 @@
       </file>
     </package>
     <package name="models">
-      <metrics statements="18" coveredstatements="12" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="25" coveredstatements="19" conditionals="0" coveredconditionals="0" methods="5" coveredmethods="4"/>
       <file name="BedConfiguration.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/BedConfiguration.js">
         <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="4" count="2" type="stmt"/>
         <line num="16" count="2" type="stmt"/>
         <line num="21" count="2" type="stmt"/>
       </file>
+      <file name="Customer.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Customer.js">
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="30" count="1" type="stmt"/>
+        <line num="39" count="1" type="stmt"/>
+      </file>
       <file name="Feature.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Feature.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="18" count="5" type="stmt"/>
       </file>
       <file name="Image.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/Image.js">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="3" count="1" type="stmt"/>
+        <metrics statements="3" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <line num="4" count="2" type="stmt"/>
+        <line num="14" count="5" type="stmt"/>
+        <line num="19" count="5" type="stmt"/>
       </file>
       <file name="PackageRate.js" path="/Users/romeoenso/Desktop/Sites/refluens/api/src/models/PackageRate.js">
         <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>

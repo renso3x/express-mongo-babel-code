@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const customerSchema = new mongoose.Schema({
   firstName: {
@@ -15,12 +16,28 @@ export const customerSchema = new mongoose.Schema({
   },
   phoneNumber: {
     type: String,
-    required: true,
+  },
+  idType: {
+    type: String,
+    required: true
   },
   idNumber: {
     type: String,
-    required: true
   }
 });
+
+export function validateCustomer(customer) {
+  const schema = {
+    firstName: Joi.string().max(50).required(),
+    lastName: Joi.string().max(50).required(),
+    email: Joi.string().email({ minDomainSegments: 2 }),
+    phoneNumber: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
+    idType: Joi.string().required(),
+    idNUmber: Joi.string().alphanum()
+  };
+
+  return Joi.validate(customer, schema);
+
+}
 
 export default mongoose.model('Customer', customerSchema);
