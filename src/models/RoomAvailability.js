@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const roomAvailabilitySchema = new mongoose.Schema({
   room: {
@@ -16,5 +17,15 @@ export const roomAvailabilitySchema = new mongoose.Schema({
     type: Number
   }
 });
+
+export function validateRoomAvailability(room) {
+  const schema = {
+    date: Joi.date(),
+    quantity: Joi.number(),
+    price: Joi.price()
+  };
+
+  return Joi.validate(room, schema);
+}
 
 export default mongoose.model('RoomAvailability', roomAvailabilitySchema);

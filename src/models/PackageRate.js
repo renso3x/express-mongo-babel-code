@@ -1,15 +1,19 @@
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const packageRateSchema = new mongoose.Schema({
   name: {
     type: String,
-    minlength: 3,
     maxlength: 50,
+    required: true,
   },
   room: {
     type: new mongoose.Schema({
-      name: String
-    })
+      name: {
+        type: String,
+        required: true
+      }
+    }),
   },
   date_in: {
     type: Date
@@ -19,7 +23,22 @@ export const packageRateSchema = new mongoose.Schema({
   },
   description: {
     type: String,
+    maxlength: 255,
   }
 });
+
+export function validatePackageRate(packageRate) {
+  const schema = {
+    name: Joi.string().max(50).required(),
+    room: Joi.object({
+      name: Joi.string().required()
+    }),
+    date_in: Joi.date(),
+    date_out: Joi.date(),
+    description: Joi.string().max(255),
+  };
+
+  return Joi.validate(packageRate, schema);
+}
 
 export default mongoose.model('PackageRate', packageRateSchema);

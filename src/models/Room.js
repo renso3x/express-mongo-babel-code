@@ -1,22 +1,18 @@
-import mongoose, { mongo } from 'mongoose';
-
-import featureSchema from './Feature';
-import imageSchema from './Image';
-import bedConfigSchema from './BedConfiguration';
+import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const roomSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlength: 5,
-    maxlength: 255
+    maxlength: 50
   },
   type: {
     type: new mongoose.Schema({
       name: String
     })
   },
-  maxRooms: {
+  maxRoom: {
     type: Number,
     default: 1,
   },
@@ -33,16 +29,16 @@ export const roomSchema = new mongoose.Schema({
       name: String
     })
   }],
-  images: {
+  images: [{
     type: new mongoose.Schema({
-      fileName: {
+      name: {
         type: String,
       },
-      url: {
+      payload: {
         type: String
       }
     })
-  },
+  }],
   bedConfig: [{
     type: new mongoose.Schema({
       name: {
@@ -56,5 +52,16 @@ export const roomSchema = new mongoose.Schema({
     })
   }],
 });
+
+export function validateRoom(room) {
+  const schema = {
+    name: Joi.string().max(50).required(),
+    maxRooms: Joi.number().default(1),
+    description: Joi.string().min(50).max(255),
+    roomSize: Joi.number(),
+  };
+
+  return Joi.validate(room, schema);
+}
 
 export default mongoose.model('Room', roomSchema);
