@@ -1,5 +1,7 @@
-import ValidateItemMiddleware from './ValidateItem';
+import { validateBed } from './validateBed';
+import { isValidId } from './validateId';
 
-module.exports = {
-  ValidateItemMiddleware
-};
+export {
+  isValidId,
+  validateBed
+}

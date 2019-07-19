@@ -12,13 +12,13 @@ export const bedConfigSchema = new mongoose.Schema({
   }
 });
 
-export function validateBedConfig(user) {
+export function validateBedConfig(bed) {
   const schema = {
     name: Joi.string().min(3).max(255).required(),
     quantity: Joi.number().min(1).positive()
   };
 
-  return Joi.validate(user, schema);
+  return Joi.validate(bed, schema);
 }
 
 export default mongoose.model('BedConfig', bedConfigSchema);
