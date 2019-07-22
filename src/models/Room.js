@@ -18,11 +18,10 @@ export const roomSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    minlength: 50,
     maxlength: 255
   },
   roomSize: {
-    type: Number,
+    type: String,
   },
   features: [{
     type: new mongoose.Schema({
@@ -56,9 +55,11 @@ export const roomSchema = new mongoose.Schema({
 export function validateRoom(room) {
   const schema = {
     name: Joi.string().max(50).required(),
-    maxRooms: Joi.number().default(1),
-    description: Joi.string().min(50).max(255),
-    roomSize: Joi.number(),
+    typeId: Joi.string().required(),
+    features: Joi.array(),
+    bedConfigId: Joi.string().required(),
+    roomSize: Joi.string(),
+    description: Joi.string(),
   };
 
   return Joi.validate(room, schema);
