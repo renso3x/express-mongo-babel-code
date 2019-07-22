@@ -18,14 +18,12 @@ export async function get(req, res) {
 
 export async function getById(req, res) {
   try {
-    if (!req.bed) {
-      const errorReponse = Object.assign({}, ERROR_MESSAGE, {
-        message: "Sorry we cannot find the genre you're looking for"
-      });
-      return res.send(errorReponse);
+    const bed = await BedConfiguration.findById(req.params.id);
+    if (!bed) {
+      throw new Error('Sorry we cannot find the genre you\'re looking for');
     }
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
-      data: req.bed
+      data: bed
     });
     return res.send(successResponse);
   } catch (e) {
@@ -77,11 +75,9 @@ export async function update(req, res) {
 
 export async function deleteById(req, res) {
   try {
-    if (!req.bed) {
-      const errorReponse = Object.assign({}, ERROR_MESSAGE, {
-        message: "Sorry we cannot find the genre you're looking for"
-      });
-      return res.send(errorReponse);
+    const bed = await BedConfiguration.findById(req.params.id);
+    if (!bed) {
+      throw new Error('Sorry we cannot find the genre you\'re looking for');
     }
     await BedConfiguration.findByIdAndRemove(req.params.id);
     return res.send(SUCCESS_MESSAGE);

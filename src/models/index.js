@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 import BedConfiguration from './BedConfiguration';
+import Customer from './Customer';
 import Feature from './Feature';
 import Image from './Image';
 import Rate from './Rate';
@@ -34,5 +35,6 @@ export {
   RoomAvailability,
   RoomExtra,
   Type,
-  PackageRate
+  PackageRate,
+  Customer
 };

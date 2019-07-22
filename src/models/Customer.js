@@ -33,11 +33,10 @@ export function validateCustomer(customer) {
     email: Joi.string().email({ minDomainSegments: 2 }),
     phoneNumber: Joi.string().regex(/^[a-zA-Z0-9]{3,30}$/),
     idType: Joi.string().required(),
-    idNUmber: Joi.string().alphanum()
+    idNumber: Joi.string()
   };
 
   return Joi.validate(customer, schema);
-
 }
 
 export default mongoose.model('Customer', customerSchema);
