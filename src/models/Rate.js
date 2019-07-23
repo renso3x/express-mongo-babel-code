@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import Joi from 'joi';
 
 export const rateSchema = new mongoose.Schema({
   room: {
@@ -16,23 +17,31 @@ export const rateSchema = new mongoose.Schema({
     type: Number,
     default: 1,
   },
-  rate: {
+  price: {
     type: Number,
-  },
-  mealsIncluded: {
-    type: String,
-    enum: ['Breakfast', 'Lunch', 'Dinner', 'All Inclusive'],
   },
   rateName: {
     type: String,
-    minlenght: 5,
-    maxlenght: 255,
+    maxlength: 50,
+    required: true
   },
   description: {
     type: String,
-    minlenght: 25,
-    maxlenght: 255,
+    maxlength: 255,
   }
 });
+
+export function validatedRate(rate) {
+  const schema = {
+    roomId: Joi.string().required(),
+    minGuest: Joi.number(),
+    maxGuest: Joi.number(),
+    price: Joi.number(),
+    rateName: Joi.string().max(50).required(),
+    description: Joi.string().max(255),
+  };
+
+  return Joi.validate(rate, schema);
+}
 
 export default mongoose.model('Rate', rateSchema);

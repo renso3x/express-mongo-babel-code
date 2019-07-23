@@ -4,6 +4,8 @@ import { isValidCustomer } from './validateCustomer';
 import { isValidFeature } from './validateFeature';
 import { isValidRoom } from './validateRoom';
 import { isValidType } from './validateType';
+import { isValidPackageRate } from './validatedPackageRate';
+import { isValidRate } from './validateRate';
 
 export {
   isValidId,
@@ -11,5 +13,7 @@ export {
   isValidCustomer,
   isValidFeature,
   isValidRoom,
-  isValidType
+  isValidType,
+  isValidPackageRate,
+  isValidRate
 }

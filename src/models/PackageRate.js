@@ -30,9 +30,7 @@ export const packageRateSchema = new mongoose.Schema({
 export function validatePackageRate(packageRate) {
   const schema = {
     name: Joi.string().max(50).required(),
-    room: Joi.object({
-      name: Joi.string().required()
-    }),
+    roomId: Joi.string().required(),
     date_in: Joi.date(),
     date_out: Joi.date(),
     description: Joi.string().max(255),
