@@ -6,6 +6,9 @@ import { isValidRoom } from './validateRoom';
 import { isValidType } from './validateType';
 import { isValidPackageRate } from './validatedPackageRate';
 import { isValidRate } from './validateRate';
+import { isValidRoomExtra } from './validateRoomExtra';
+import { isValidRoomAvailability } from './validateRoomAvailability';
+import { isValidReservation } from './validateReservation';
 
 export {
   isValidId,
@@ -15,5 +18,8 @@ export {
   isValidRoom,
   isValidType,
   isValidPackageRate,
-  isValidRate
+  isValidRate,
+  isValidRoomExtra,
+  isValidRoomAvailability,
+  isValidReservation
 }

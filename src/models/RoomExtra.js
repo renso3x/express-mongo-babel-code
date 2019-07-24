@@ -5,7 +5,6 @@ export const roomExtraSchema = new mongoose.Schema({
   name: {
     type: String,
     required: true,
-    minlenght: 5,
     maxlength: 100
   },
   price: {
@@ -13,16 +12,15 @@ export const roomExtraSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    minlenght: 5,
     maxlength: 255
   },
 });
 
 export function validateExtra(extra) {
   const schema = {
-    name: Joi.string().min(5).max(100),
+    name: Joi.string().max(100).required(),
     price: Joi.number(),
-    description: Joi.string().min(5).max(255)
+    description: Joi.string().max(255)
   };
   return Joi.validate(extra, schema);
 }

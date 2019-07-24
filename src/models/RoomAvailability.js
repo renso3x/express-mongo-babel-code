@@ -10,9 +10,6 @@ export const roomAvailabilitySchema = new mongoose.Schema({
   date: {
     type: Date,
   },
-  quantity: {
-    type: Number
-  },
   price: {
     type: Number
   }
@@ -20,9 +17,9 @@ export const roomAvailabilitySchema = new mongoose.Schema({
 
 export function validateRoomAvailability(room) {
   const schema = {
+    roomId: Joi.string().required(),
     date: Joi.date(),
-    quantity: Joi.number(),
-    price: Joi.price()
+    price: Joi.number()
   };
 
   return Joi.validate(room, schema);
