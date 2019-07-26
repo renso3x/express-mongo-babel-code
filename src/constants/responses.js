@@ -15,3 +15,21 @@ export const NOT_FOUND = {
   error: true,
   message: 'failed'
 };
+
+export const FORBIDDEN = {
+  status: 403,
+  error: true,
+  message: 'Forbidden'
+}
+
+export const INVALID_ACCESS = {
+  status: 401,
+  error: true,
+  message: 'Invalid Access.'
+}
+
+export const INVALID_TOKEN = {
+  status: 400,
+  error: true,
+  message: 'Invalid Token.'
+}

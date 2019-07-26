@@ -8,6 +8,8 @@ import rate from './routes/Rate';
 import extras from './routes/RoomExtra';
 import roomAvailability from './routes/RoomAvailability';
 import reservation from './routes/Reservation';
+import users from './routes/User';
+import auth from './routes/Auth';
 
 export default function routes(app) {
   app.use('/api/beds', bed);
@@ -20,4 +22,6 @@ export default function routes(app) {
   app.use('/api/extras', extras);
   app.use('/api/room-availability', roomAvailability);
   app.use('/api/reservations', reservation);
+  app.use('/api/users', users);
+  app.use('/api/auth', auth);
 }

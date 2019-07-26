@@ -9,6 +9,8 @@ import { isValidRate } from './validateRate';
 import { isValidRoomExtra } from './validateRoomExtra';
 import { isValidRoomAvailability } from './validateRoomAvailability';
 import { isValidReservation } from './validateReservation';
+import { isValidUser } from './validateUser';
+import { auth, isAdmin, isValidAuth } from './auth';
 
 export {
   isValidId,
@@ -21,5 +23,9 @@ export {
   isValidRate,
   isValidRoomExtra,
   isValidRoomAvailability,
-  isValidReservation
+  isValidReservation,
+  isValidUser,
+  auth,
+  isAdmin,
+  isValidAuth
 }
