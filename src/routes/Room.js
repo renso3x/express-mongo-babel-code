@@ -1,15 +1,15 @@
 import express from 'express';
 
-import { isValidId, isValidRoom } from '../middlewares';
+import { isValidId, isValidRoom, auth } from '../middlewares';
 import {
   get, save, getById, update
 } from '../controllers/RoomController';
 
 const router = express.Router();
 
-router.get('/', get);
-router.post('/', [isValidRoom], save);
-router.get('/:id', [isValidId], getById);
-router.put('/:id', [isValidId, isValidRoom], update);
+router.get('/', [auth], get);
+router.post('/', [auth, isValidRoom], save);
+router.get('/:id', [auth, isValidId], getById);
+router.put('/:id', [auth, isValidId, isValidRoom], update);
 
 export default router;

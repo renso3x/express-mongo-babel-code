@@ -11,6 +11,7 @@ import { isValidRoomAvailability } from './validateRoomAvailability';
 import { isValidReservation } from './validateReservation';
 import { isValidUser } from './validateUser';
 import { auth, isAdmin, isValidAuth } from './auth';
+import { cleanCache } from './cache';
 
 export {
   isValidId,
@@ -27,5 +28,6 @@ export {
   isValidUser,
   auth,
   isAdmin,
-  isValidAuth
-}
+  isValidAuth,
+  cleanCache
+};

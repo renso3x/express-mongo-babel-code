@@ -1,3 +1,4 @@
+
 import {
   Room, Type, Feature,
   Image, BedConfiguration
@@ -6,7 +7,7 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../constants/responses';
 
 export async function get(req, res) {
   try {
-    const rooms = await Room.find({});
+    const rooms = await Room.find({}).cache({ key: req.user._id });
     const response = Object.assign({}, SUCCESS_MESSAGE, {
       data: rooms
     });
@@ -28,7 +29,7 @@ export async function getById(req, res) {
     const response = Object.assign({}, SUCCESS_MESSAGE, {
       data: room
     });
-    return res.send(response)
+    return res.send(response);
   } catch (e) {
     const response = Object.assign({}, ERROR_MESSAGE, {
       message: e.message

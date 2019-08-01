@@ -1,6 +1,6 @@
 import express from 'express';
 
-import { isValidReservation, isValidId } from '../middlewares';
+import { isValidReservation, isValidId, cleanCache } from '../middlewares';
 import {
   get, save, getById,
   update, deleteById,
@@ -10,7 +10,7 @@ import {
 const router = express.Router();
 
 router.get('/', get);
-router.post('/', [isValidReservation], save);
+router.post('/', [isValidReservation, cleanCache], save);
 router.get('/:id', [isValidId], getById);
 router.post('/customer', findCustomer);
 router.post('/room', findRoom);

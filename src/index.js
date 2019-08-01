@@ -3,6 +3,7 @@ import express from 'express';
 import graphqlHTTP from 'express-graphql';
 import expressPlayground from 'graphql-playground-middleware-express';
 
+import './services/cache';
 import routes from './routes';
 import { connectDb } from './models';
 
