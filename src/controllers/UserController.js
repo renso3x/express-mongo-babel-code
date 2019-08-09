@@ -22,10 +22,12 @@ export async function save(req, res) {
     let user = await User.findOne({ email: req.body.email });
 
     if (user) {
-      throw new Error('User already registered.')
+      throw new Error('User already registered.');
     }
 
-    user = new User(_.pick(req.body, ['name', 'email', 'password']));
+    user = new User(
+      _.pick(req.body, ['name', 'email', 'password', 'accomodation'])
+    );
 
     const salt = await bcrpyt.genSalt(10);
     user.password = await bcrpyt.hash(user.password, salt);
@@ -41,7 +43,7 @@ export async function save(req, res) {
   } catch (e) {
     const response = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
-    })
+    });
     return res.send(response);
   }
 }
@@ -49,12 +51,14 @@ export async function save(req, res) {
 export async function me(req, res) {
   try {
     //get user object in req.user
-    const user = await User.findById(req.user._id).select('-password');
+    const user = await User.findById(req.user._id)
+      .select('-password')
+      .populate('accomodation');
     res.send(user);
   } catch (e) {
     const response = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
-    })
+    });
     return res.send(response);
   }
 }

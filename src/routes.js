@@ -10,6 +10,7 @@ import roomAvailability from './routes/RoomAvailability';
 import reservation from './routes/Reservation';
 import users from './routes/User';
 import auth from './routes/Auth';
+import accomodation from './routes/Accomodation';
 
 export default function routes(app) {
   app.use('/api/beds', bed);
@@ -24,4 +25,5 @@ export default function routes(app) {
   app.use('/api/reservations', reservation);
   app.use('/api/users', users);
   app.use('/api/auth', auth);
+  app.use('/api/accomodations', accomodation);
 }

@@ -8,14 +8,24 @@ export const bedConfigSchema = new mongoose.Schema({
   },
   quantity: {
     type: Number,
-    default: 1,
+    default: 1
+  },
+  accomodation: {
+    type: String,
+    ref: 'Accomodation'
   }
 });
 
 export function validateBedConfig(bed) {
   const schema = {
-    name: Joi.string().min(3).max(255).required(),
-    quantity: Joi.number().min(1).positive()
+    name: Joi.string()
+      .min(3)
+      .max(255)
+      .required(),
+    quantity: Joi.number()
+      .min(1)
+      .positive(),
+    accomodation: Joi.string().required()
   };
 
   return Joi.validate(bed, schema);

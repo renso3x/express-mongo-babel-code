@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "babel src --out-dir dist --copy-files",
-    "start": "babel-node src/index.js",
+    "start": "babel-node src/index.js ",
     "start:dist": "node dist/index.js",
     "test": "jest --watchAll --verbose --coverage"
   },
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "bcrypt": "^3.0.6",
+    "cors": "^2.8.5",
     "dotenv": "^8.0.0",
     "express": "^4.17.1",
     "express-graphql": "^0.8.0",
@@ -25,7 +26,8 @@
     "mongoose": "^5.5.15",
     "redis": "^2.8.0",
     "request": "^2.88.0",
-    "request-promise": "^4.2.4"
+    "request-promise": "^4.2.4",
+    "uuid": "^3.3.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.4.4",

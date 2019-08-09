@@ -10,10 +10,12 @@ import { isValidRoomExtra } from './validateRoomExtra';
 import { isValidRoomAvailability } from './validateRoomAvailability';
 import { isValidReservation } from './validateReservation';
 import { isValidUser } from './validateUser';
-import { auth, isAdmin, isValidAuth } from './auth';
+import { auth, isAdmin, isValidAuth, isRootUser } from './auth';
 import { cleanCache } from './cache';
+import { isValidAccomodation } from './validateAccomodation';
 
 export {
+  isRootUser,
   isValidId,
   validateBed,
   isValidCustomer,
@@ -29,5 +31,6 @@ export {
   auth,
   isAdmin,
   isValidAuth,
-  cleanCache
+  cleanCache,
+  isValidAccomodation
 };

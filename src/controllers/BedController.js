@@ -3,7 +3,9 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../constants/responses';
 
 export async function get(req, res) {
   try {
-    const beds = await BedConfiguration.find({});
+    const beds = await BedConfiguration.find({
+      accomodation: '2042d665-e319-413b-8813-16d52cae9303'
+    }).populate('accomodation');
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
       data: beds
     });
@@ -20,7 +22,7 @@ export async function getById(req, res) {
   try {
     const bed = await BedConfiguration.findById(req.params.id);
     if (!bed) {
-      throw new Error('Sorry we cannot find the genre you\'re looking for');
+      throw new Error("Sorry we cannot find the genre you're looking for");
     }
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
       data: bed
@@ -55,10 +57,14 @@ export async function save(req, res) {
 
 export async function update(req, res) {
   try {
-    const bed = await BedConfiguration.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      quantity: req.body.quantity,
-    }, { new: true });
+    const bed = await BedConfiguration.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        quantity: req.body.quantity
+      },
+      { new: true }
+    );
 
     const response = Object.assign({}, SUCCESS_MESSAGE, {
       data: bed
@@ -77,16 +83,14 @@ export async function deleteById(req, res) {
   try {
     const bed = await BedConfiguration.findById(req.params.id);
     if (!bed) {
-      throw new Error('Sorry we cannot find the genre you\'re looking for');
+      throw new Error("Sorry we cannot find the genre you're looking for");
     }
     await BedConfiguration.findByIdAndRemove(req.params.id);
     return res.send(SUCCESS_MESSAGE);
-
   } catch (e) {
     const errorReponse = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
     });
     return res.send(errorReponse);
   }
-
 }

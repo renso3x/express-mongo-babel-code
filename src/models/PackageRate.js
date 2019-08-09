@@ -5,7 +5,7 @@ export const packageRateSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 50,
-    required: true,
+    required: true
   },
   room: {
     type: new mongoose.Schema({
@@ -13,7 +13,7 @@ export const packageRateSchema = new mongoose.Schema({
         type: String,
         required: true
       }
-    }),
+    })
   },
   date_in: {
     type: Date
@@ -23,17 +23,24 @@ export const packageRateSchema = new mongoose.Schema({
   },
   description: {
     type: String,
-    maxlength: 255,
+    maxlength: 255
+  },
+  accomodation: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Accomodation'
   }
 });
 
 export function validatePackageRate(packageRate) {
   const schema = {
-    name: Joi.string().max(50).required(),
+    name: Joi.string()
+      .max(50)
+      .required(),
     roomId: Joi.string().required(),
     date_in: Joi.date(),
     date_out: Joi.date(),
     description: Joi.string().max(255),
+    accomodation: Joi.string().required()
   };
 
   return Joi.validate(packageRate, schema);

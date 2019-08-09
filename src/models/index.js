@@ -12,6 +12,7 @@ import Type from './Type';
 import PackageRate from './PackageRate';
 import Reservation from './Reservation';
 import User from './User';
+import Accomodation from './Accomodation';
 
 const connectDb = () => {
   const uri = process.env.MONGO_URI;
@@ -25,10 +26,11 @@ const connectDb = () => {
     useFindAndModify: false
   };
   return mongoose.connect(mongoUri, mongoOptions);
-}
+};
 
 export {
   connectDb,
+  Accomodation,
   BedConfiguration,
   Feature,
   Image,
