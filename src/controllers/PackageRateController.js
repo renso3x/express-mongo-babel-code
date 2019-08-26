@@ -70,16 +70,20 @@ export async function update(req, res) {
       throw new Error('Sorry, we cannot find the room');
     }
 
-    const packageRate = await PackageRate.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-      room: {
-        _id: room._id,
-        name: room.name
+    const packageRate = await PackageRate.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name,
+        room: {
+          _id: room._id,
+          name: room.name
+        },
+        date_in: req.body.date_in,
+        date_out: req.body.date_out,
+        description: req.body.description
       },
-      date_in: req.body.date_in,
-      date_out: req.body.date_out,
-      description: req.body.description
-    }, { new: true });
+      { new: true }
+    );
 
     if (!packageRate) {
       throw new Error('Sorry, we cannot find your data.');
@@ -106,7 +110,6 @@ export async function deleteById(req, res) {
     }
     await PackageRate.findByIdAndRemove(req.params.id);
     return res.send(SUCCESS_MESSAGE);
-
   } catch (e) {
     const errorReponse = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
