@@ -44,7 +44,7 @@ export async function update(req, res) {
   try {
     const accomodation = await Accomodation.findByIdAndUpdate(
       req.params.id,
-      { ...req.body, type: req.body.typeId },
+      { ...req.body, type: req.body.accomodationTypeId },
       { new: true }
     );
 

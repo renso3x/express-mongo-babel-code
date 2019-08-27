@@ -7,6 +7,6 @@ const router = express.Router();
 
 router.get('/', [auth, isRootUser], get);
 router.post('/', [auth, isRootUser, isValidAccomodation], save);
-router.put('/', [auth, isRootUser, isValidAccomodation], update);
+router.put('/:id', [auth, isRootUser, isValidAccomodation], update);
 
 export default router;
