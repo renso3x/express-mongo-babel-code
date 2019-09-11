@@ -3,11 +3,9 @@ import { ERROR_MESSAGE, SUCCESS_MESSAGE } from '../constants/responses';
 
 export async function get(req, res) {
   try {
-    const beds = await BedConfiguration.find({
-      accomodation: '2042d665-e319-413b-8813-16d52cae9303'
-    }).populate('accomodation');
+    const beds = await BedConfiguration.find({});
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
-      data: beds
+      beds
     });
     return res.send(successResponse);
   } catch (e) {
@@ -25,7 +23,7 @@ export async function getById(req, res) {
       throw new Error("Sorry we cannot find the genre you're looking for");
     }
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
-      data: bed
+      bed
     });
     return res.send(successResponse);
   } catch (e) {
@@ -43,7 +41,7 @@ export async function save(req, res) {
     await newBedConfig.save();
 
     const successResponse = Object.assign({}, SUCCESS_MESSAGE, {
-      message: newBedConfig.name
+      bed: newBedConfig
     });
 
     return res.send(successResponse);
@@ -67,7 +65,7 @@ export async function update(req, res) {
     );
 
     const response = Object.assign({}, SUCCESS_MESSAGE, {
-      data: bed
+      bed
     });
 
     return res.send(response);

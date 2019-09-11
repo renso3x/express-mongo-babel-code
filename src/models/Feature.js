@@ -4,15 +4,13 @@ import Joi from 'joi';
 export const featureSchema = new mongoose.Schema({
   name: {
     type: String,
-    minlength: 3,
-    maxlength: 30,
-    required: true,
+    required: true
   }
 });
 
 export function validateFeature(feature) {
   const schema = {
-    name: Joi.string().min(3).max(100).required()
+    name: Joi.string().required()
   };
 
   return Joi.validate(feature, schema);

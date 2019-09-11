@@ -21,8 +21,11 @@ export async function save(req, res) {
     const feature = new Feature(req.body);
     await feature.save();
 
-    return res.send(SUCCESS_MESSAGE);
+    const response = Object.assign({}, SUCCESS_MESSAGE, {
+      data: feature
+    });
 
+    return res.send(response);
   } catch (e) {
     const response = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
@@ -51,9 +54,13 @@ export async function getById(req, res) {
 
 export async function update(req, res) {
   try {
-    const feature = await Feature.findByIdAndUpdate(req.params.id, {
-      name: req.body.name,
-    }, { new: true });
+    const feature = await Feature.findByIdAndUpdate(
+      req.params.id,
+      {
+        name: req.body.name
+      },
+      { new: true }
+    );
 
     if (!feature) {
       throw new Error('Sorry, we cannot find your data.');
@@ -80,7 +87,6 @@ export async function deleteById(req, res) {
     }
     await Feature.findByIdAndRemove(req.params.id);
     return res.send(SUCCESS_MESSAGE);
-
   } catch (e) {
     const errorReponse = Object.assign({}, ERROR_MESSAGE, {
       message: e.message
